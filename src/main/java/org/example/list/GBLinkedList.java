@@ -87,7 +87,6 @@ public class GBLinkedList<T> {
 
     public void reverse() {
         GBNode<T> node = tail;
-//        GBNode<T> first = head;
         GBNode<T> last = tail;
 
         while (node != null) {
