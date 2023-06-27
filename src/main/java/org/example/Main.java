@@ -14,11 +14,6 @@ public class Main {
 //        System.out.println(Arrays.toString(arrayExample));
 
 
-//        ReversingLinkedList <Integer> list = new ReversingLinkedList(36,49,68,6,65);
-//        System.out.println(list.toString());
-//        list.reverse();
-//        System.out.println(list);
-
         GBLinkedList<Integer> list = new GBLinkedList<>();
         list.addLast(36);
         list.addLast(49);
