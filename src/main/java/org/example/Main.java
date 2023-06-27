@@ -26,7 +26,11 @@ public class Main {
         list.addLast(6);
         list.addLast(65);
         list.print();
-        list.printBack(); //Обратный вывод
+        System.out.println("--- 1 способ: обратная итерация ---");
+        list.printBack();
+        System.out.println("--- 2 способ: смена ссылок ---");
+        list.reverse();
+        list.print();
 
     }
 }

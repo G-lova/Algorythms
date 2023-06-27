@@ -1,8 +1,6 @@
 package org.example.list;
 
-import org.example.GBList;
-
-public class GBLinkedList<T> implements GBList<T> {
+public class GBLinkedList<T> {
 
     int size = 0;
     GBNode<T> head;
@@ -13,7 +11,6 @@ public class GBLinkedList<T> implements GBList<T> {
         this.tail = null;
     }
 
-    @Override
     public void addFirst(T element) {
         GBNode<T> item = new GBNode<>(element);
         if (size == 0) tail = item;
@@ -23,7 +20,6 @@ public class GBLinkedList<T> implements GBList<T> {
         size++;
     }
 
-    @Override
     public void addLast(T element) {
         GBNode<T> item = new GBNode<>(element);
         if (size == 0) head = item;
@@ -33,7 +29,6 @@ public class GBLinkedList<T> implements GBList<T> {
         size++;
     }
 
-    @Override
     public GBNode<T> remove(int index) {
         if ((index < 0) || (index >= size)) return null;
         GBNode<T> element = get(index);
@@ -57,7 +52,6 @@ public class GBLinkedList<T> implements GBList<T> {
         return element;
     }
 
-    @Override
     public GBNode<T> get(int index) {
         if ((size == 0) || (index >= size)) return null;
         GBNode<T> element = head;
@@ -67,7 +61,6 @@ public class GBLinkedList<T> implements GBList<T> {
         return element;
     }
 
-    @Override
     public int size() {
         return size;
     }
@@ -90,5 +83,22 @@ public class GBLinkedList<T> implements GBList<T> {
             System.out.printf("%s ", out.toString());
         }
         System.out.println();
+    }
+
+    public void reverse() {
+        GBNode<T> node = tail;
+//        GBNode<T> first = head;
+        GBNode<T> last = tail;
+
+        while (node != null) {
+            GBNode<T> tmp = node.next;
+            node.next = node.prev;
+            node.prev = tmp;
+            node = node.next;
+        }
+
+        tail = head;
+        head = last;
+
     }
 }
