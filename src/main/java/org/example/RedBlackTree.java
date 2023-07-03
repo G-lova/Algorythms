@@ -85,12 +85,12 @@ public class RedBlackTree {
                 result = rightSwap(result);
             }
             if (result.leftChild != null && result.leftChild.color == Color.Red &&
-                    (result.leftChild == null || result.leftChild.color == Color.Red)) {
+                    result.leftChild.leftChild != null && result.leftChild.color == Color.Red) {
                 needRebalance = true;
                 result = leftSwap(result);
             }
             if (result.leftChild != null && result.leftChild.color == Color.Red &&
-                    (result.rightChild == null || result.rightChild.color == Color.Red)) {
+                    result.rightChild != null && result.rightChild.color == Color.Red) {
                 needRebalance = true;
                 colorSwap(result);
             }
@@ -103,7 +103,7 @@ public class RedBlackTree {
         TreeNode rightChild = node.rightChild;
         TreeNode betweenChild = rightChild.leftChild;
         rightChild.leftChild = node;
-        node.leftChild = betweenChild;
+        node.rightChild = betweenChild;
         rightChild.color = node.color;
         node.color = Color.Red;
         return rightChild;

@@ -37,7 +37,7 @@ public class Main {
                 try {
                     int value = Integer.parseInt(reader.readLine());
                     tree.add(value);
-//                    printTree(tree.getRoot(), null, false);
+                    printTree(tree.getRoot(), null, false);
                     System.out.println("finish");
                 } catch (Exception ignored) {
 
